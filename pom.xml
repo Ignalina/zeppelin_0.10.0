@@ -109,8 +109,9 @@
     <!-- language versions -->
     <java.version>1.8</java.version>
     <scala.2.10.version>2.10.5</scala.2.10.version>
-    <scala.version>${scala.2.10.version}</scala.version>
-    <scala.binary.version>2.10</scala.binary.version>
+    <scala.2.12.version>2.12.15</scala.2.12.version>
+    <scala.version>${scala.2.12.version}</scala.version>
+    <scala.binary.version>2.12</scala.binary.version>
     <scala.2.11.version>2.11.8</scala.2.11.version>
     <scalatest.version>3.0.7</scalatest.version>
     <scalacheck.version>1.12.5</scalacheck.version>
@@ -150,7 +151,9 @@
     <hadoop3.0.version>3.0.3</hadoop3.0.version>
     <hadoop3.1.version>3.1.3</hadoop3.1.version>
     <hadoop3.2.version>3.2.0</hadoop3.2.version>
-    <hadoop.version>${hadoop2.7.version}</hadoop.version>
+    <hadoop3.3.version>3.3.1</hadoop3.3.version>
+
+    <hadoop.version>${hadoop3.3.version}</hadoop.version>
     
     <hadoop.deps.scope>provided</hadoop.deps.scope>
     <quartz.scheduler.version>2.3.2</quartz.scheduler.version>
@@ -1524,22 +1527,12 @@
   </build>
 
   <profiles>
-    <profile>
-      <id>scala-2.10</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <scala.version>${scala.2.10.version}</scala.version>
-        <scala.binary.version>2.10</scala.binary.version>
-      </properties>
-    </profile>
 
     <profile>
-      <id>scala-2.11</id>
+      <id>scala-2.12</id>
       <properties>
-        <scala.version>${scala.2.11.version}</scala.version>
-        <scala.binary.version>2.11</scala.binary.version>
+        <scala.version>${scala.2.12.version}</scala.version>
+        <scala.binary.version>2.12</scala.binary.version>
       </properties>
     </profile>
 
@@ -1881,7 +1874,7 @@
     <profile>
       <id>hadoop3</id>
       <properties>
-        <hadoop.version>${hadoop3.2.version}</hadoop.version>
+        <hadoop.version>${hadoop3.3.version}</hadoop.version>
         <curator.version>2.13.0</curator.version>
         <kerberos-client.version>2.0.0-M15</kerberos-client.version>
       </properties>
