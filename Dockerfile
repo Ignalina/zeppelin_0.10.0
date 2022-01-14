@@ -31,3 +31,9 @@ RUN echo "unsafe-perm=true" > ~/.npmrc && \
 
 FROM ubuntu:20.04
 COPY --from=builder /opt/zeppelin /opt/zeppelin
+RUN export ZEPPELIN_HOME=/opt/zeppelin
+RUN |2 miniconda_version=py37_4.9.2 miniconda_sha256=79510c6e7bd9e012856e25dcb21b3e093aa4ac8113d9aa7e82a86987eabe1c31 /bin/sh -c echo "$LOG_TAG Zeppelin binary"  &&   rm -f /tmp/zeppelin-${Z_VERSION}-bin-all.tgz &&     chown -R root:root ${ZEPPELIN_HOME} &&     mkdir -p ${ZEPPELIN_HOME}/logs ${ZEPPELIN_HOME}/run ${ZEPPELIN_HOME}/webapps &&     chgrp root /etc/passwd && chmod ug+rw /etc/passwd &&     chmod -R 775 "${ZEPPELIN_HOME}/logs" "${ZEPPELIN_HOME}/run" "${ZEPPELIN_HOME}/notebook" "${ZEPPELIN_HOME}/conf" &&     chmod 775 ${ZEPPELIN_HOME} &&     chmod -R 775 /opt/conda 
+
+ENTRYPOINT ["/usr/bin/tini" "--"]
+WORKDIR /opt/zeppelin
+CMD ["bin/zeppelin.sh"]
