@@ -91,10 +91,10 @@ RUN echo "$LOG_TAG Download Zeppelin binary" && \
     chmod 775 ${ZEPPELIN_HOME} && \
     chmod -R 775 /opt/conda
 
-#COPY conf/log4j.properties ${ZEPPELIN_HOME}/conf/
-#COPY conf/log4j_docker.properties ${ZEPPELIN_HOME}/conf/
-#COPY conf/log4j2.properties ${ZEPPELIN_HOME}/conf/
-#COPY conf/log4j2_docker.properties ${ZEPPELIN_HOME}/conf/
+COPY /scripts/docker/zeppelin/bin/log4j.properties ${ZEPPELIN_HOME}/conf/
+COPY /scripts/docker/zeppelin/bin/log4j_docker.properties ${ZEPPELIN_HOME}/conf/
+COPY /scripts/docker/zeppelin/bin/log4j2.properties ${ZEPPELIN_HOME}/conf/
+COPY /scripts/docker/zeppelin/bin/log4j2_docker.properties ${ZEPPELIN_HOME}/conf/
 
 USER 1000
 
