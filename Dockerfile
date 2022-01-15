@@ -57,7 +57,7 @@ ARG miniconda_version="py37_4.9.2"
 # Hashes via https://docs.conda.io/en/latest/miniconda_hashes.html
 ARG miniconda_sha256="79510c6e7bd9e012856e25dcb21b3e093aa4ac8113d9aa7e82a86987eabe1c31"
 # Install python and R packages via conda
-COPY env_python_3_with_R.yml /env_python_3_with_R.yml
+COPY /scripts/docker/zeppelin/bin/env_python_3_with_R.yml /env_python_3_with_R.yml
 
 RUN set -ex && \
     wget -nv https://repo.anaconda.com/miniconda/Miniconda3-${miniconda_version}-Linux-x86_64.sh -O miniconda.sh && \
