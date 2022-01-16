@@ -95,6 +95,7 @@ COPY /scripts/docker/zeppelin/bin/log4j.properties ${ZEPPELIN_HOME}/conf/
 COPY /scripts/docker/zeppelin/bin/log4j_docker.properties ${ZEPPELIN_HOME}/conf/
 COPY /scripts/docker/zeppelin/bin/log4j2.properties ${ZEPPELIN_HOME}/conf/
 COPY /scripts/docker/zeppelin/bin/log4j2_docker.properties ${ZEPPELIN_HOME}/conf/
+COPY /conf/zeppelin-env.sh ${ZEPPELIN_HOME}/conf/
 
 USER 1000
 
