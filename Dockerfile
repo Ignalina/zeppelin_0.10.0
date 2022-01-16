@@ -86,7 +86,7 @@ RUN echo "$LOG_TAG Download Zeppelin binary" && \
     # Allow process to edit /etc/passwd, to create a user entry for zeppelin
     chgrp root /etc/passwd && chmod ug+rw /etc/passwd && \
     # Give access to some specific folders
-    chmod -R 775 "${ZEPPELIN_HOME}/logs" "${ZEPPELIN_HOME}/run" "${ZEPPELIN_HOME}/notebook" "${ZEPPELIN_HOME}/conf" && \
+    chmod -R 775 "${ZEPPELIN_HOME}/logs" "${ZEPPELIN_HOME}/run"  "${ZEPPELIN_HOME}/conf" && \
     # Allow process to create new folders (e.g. webapps)
     chmod 775 ${ZEPPELIN_HOME} && \
     chmod -R 775 /opt/conda
